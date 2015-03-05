@@ -26,6 +26,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
 	// Database Name and Paths
 	private static final String DB_NAME = "UQ9DB.db";
 	private static final String DB_PATH = "/data/data/pt.projecttransporter/databases/";
+	private static final String DB_VERSION = "1.0";
 
 	// Contacts table name
 	private static final String TABLE_CONTACTS = "uq9db";
@@ -58,8 +59,8 @@ public class uq9db_handler extends SQLiteOpenHelper{
 	
 	/* Constructor should be private to prevent direct instantiation.
 	make call to static factory method "getInstance()" instead */
-	private DatabaseHandler(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);
+	private uq9db_handler(Context context) {
+		super(context, DB_NAME, null, DB_VERSION);
 	}
 	
 	// Creating Tables
