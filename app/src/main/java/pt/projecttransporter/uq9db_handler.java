@@ -20,7 +20,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
   // All static variables
   // Ensuring only and ONLY one instance of DatabaseHelper is 
 	// existing at any given time
-	private static uq9db_handler db_instance
+	private static uq9db_handler db_instance;
 	
 	// Database version
 	// Database Name and Paths
