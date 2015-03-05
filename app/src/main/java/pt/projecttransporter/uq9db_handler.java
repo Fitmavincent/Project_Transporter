@@ -95,11 +95,11 @@ public class uq9db_handler extends SQLiteOpenHelper{
 	// Upgrading database
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-	// Drop older table if existed
-	db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAIN);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_VOLATILE);
+		// Drop older table if existed
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAIN);
+        	db.execSQL("DROP TABLE IF EXISTS " + TABLE_VOLATILE);
 
-        // Create tables again
+        	// Create tables again
 		onCreate(db);
 	}
 	
@@ -128,10 +128,14 @@ public class uq9db_handler extends SQLiteOpenHelper{
 		return db !=null ? true:false;
 	}
 	
+	// Adding a new person's attribute
 	void addPerson(uq9db person){
+		// Get database instance
 		SQLiteDatabase db = uq9db_instance.getWritableDatabase();
-
+		
+		// Put attributes/params into content values
 		ContentValues values = new ContentValues();
+		values.put(K_ID, person.getID());
 		values.put(K_FIRSTNAME, person.getFirstname());
 		values.put(K_LASTNAME, person.getLastname());
 		values.put(K_GENDER, person.getGender().toString());
@@ -144,6 +148,9 @@ public class uq9db_handler extends SQLiteOpenHelper{
         	values.put(K_WORKSTAT, person.getWork_stat());
 
 		// Inserting Row
+		// VOLATILE TABLE will automatically insert person ID column
+		// due to foreign key constraints that was referenced to the 
+		// person ID on MAIN TABLE
 		db.insert(TABLE_MAIN, null, values);
 		db.close(); // Closing database connection
 	}
