@@ -154,8 +154,12 @@ public class uq9db_handler extends SQLiteOpenHelper{
 		db.insert(TABLE_MAIN, null, values);
 		db.close(); // Closing database connection
 	}
-
-
+	
+	void add_volatileAttr(uq9db_volatile person_volatile){
+		// Extract a volatile person's attributes
+		
+	}
+	
 
 
 
