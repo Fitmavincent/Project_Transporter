@@ -17,7 +17,7 @@ public class uq9db {
     private Gender gender;
     private String address;
     private Number Tel;
-    private Date DoB;
+    private String DoB;
     private String email;
     private String fblink;
     private String nationality;
@@ -41,7 +41,7 @@ public class uq9db {
 //        this.work_stat = workstat;
 //    }//
 
-    public uq9db(String firstname, String lastname, Gender gender, String address, Number Tel, Date DoB, String email, String fblink, String nationality, String workstat) {
+    public uq9db(String firstname, String lastname, Gender gender, String address, Number Tel, String DoB, String email, String fblink, String nationality, String workstat) {
         this.id = id++;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -79,7 +79,7 @@ public class uq9db {
         return this.Tel;
     }
 
-    public Date getDoB() {
+    public String getDoB() {
         return this.DoB;
     }
 
