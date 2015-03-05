@@ -86,18 +86,15 @@ public class uq9db_handler extends SQLiteOpenHelper{
 			// Create table - Drivers
 			String create_drivers_table = "CREATE TABLE " + TABLE_DRIVERS + "("
 					+ K_ID + " INTEGER PRIMARY KEY," + K_DRIVE + " TEXT," 
-					+ K_CARSPACE + " INT,"
-                    + "FOREIGN KEY (" + K_ID + ") " + "REFERENCES " + TABLE_MAIN
-                    + "(" + K_ID + ")"
-                    + ")";
+					+ K_CARSPACE + " INT," + "FOREIGN KEY (" + K_ID + ") " 
+					+ "REFERENCES " + TABLE_MAIN + "(" + K_ID + ")" + ")";
 			db.execSQL(create_drivers_table); // Execute SQL command
 			
 			// Create table - GoCard
 			String create_gocard_table = "CREATE TABLE " + TABLE_GOCARD + "("
 					+ K_ID + " INTEGER PRIMARY KEY," + K_GOCARD + " TEXT,"
-                    + "FOREIGN KEY (" + K_ID + ") " + "REFERENCES " + TABLE_MAIN
-                    + "(" + K_ID + ")"
-                    + ")";
+                    		+ "FOREIGN KEY (" + K_ID + ") " + "REFERENCES " + TABLE_MAIN
+                    		+ "(" + K_ID + ")" + ")";
 			db.execSQL(create_gocard_table); // Execute SQL command
 		}
 	}
@@ -138,6 +135,25 @@ public class uq9db_handler extends SQLiteOpenHelper{
 
 		// Otherwise return false to indicate it is not there
 		return db !=null ? true:false;
+	}
+	
+	void addPerson(uq9db person){
+		SQLiteDatabase db = uq9db_instance.getWritableDatabase();
+
+		ContentValues values = new ContentValues();
+		values.put(K_NAME, person.getFirstName());
+		values.put(K_GENDER, person.getLastName());
+		values.put(K_DRIVER, person.getGender());
+		values.put(K_STUDENT, person.getAddress());
+		values.put(K_CARCAP, person.getTel());
+		values.put(K_GOING, person.getDoB());
+		values.put(K_GOING, person.getDoB());
+		values.put(K_GOING, person.getDoB());
+		values.put(K_GOING, person.getDoB());
+
+		// Inserting Row
+		db.insert(TABLE_CONTACTS, null, values);
+		db.close(); // Closing database connection
 	}
 
 
