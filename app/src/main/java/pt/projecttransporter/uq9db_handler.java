@@ -30,8 +30,8 @@ public class uq9db_handler extends SQLiteOpenHelper{
 
 	// Contacts table name
 	private static final String TABLE_MAIN = "uq9db_main";
-    private static final String TABLE_DRIVERS = "uq9db_drivers";
-    private static final String TABLE_GOCARD = "uq9db_gocard";
+    	private static final String TABLE_DRIVERS = "uq9db_drivers";
+    	private static final String TABLE_GOCARD = "uq9db_gocard";
 
 	// Contacts Table Columns names
 	private static final String K_ID = "id";
