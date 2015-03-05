@@ -26,7 +26,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
 	// Database Name and Paths
 	private static final String DB_NAME = "UQ9DB.db";
 	private static final String DB_PATH = "/data/data/pt.projecttransporter/databases/";
-	private static final String DB_VERSION = "1.0";
+	private static final int DB_VERSION = 1;
 
 	// Contacts table name
 	private static final String TABLE_CONTACTS = "uq9db";
@@ -76,8 +76,8 @@ public class uq9db_handler extends SQLiteOpenHelper{
 					+ K_ID + " INTEGER PRIMARY KEY," + K_FIRSTNAME + " TEXT,"
 					+ K_LASTNAME + " TEXT," + K_GENDER + " TEXT," 
 					+ K_ADDR + " TEXT," + K_TEL  + " TEXT," 
-					+ K_DATE + " TEXT," + KEY_EMAIL + " TEXT " 
-					+ K_FBLINK + " TEXT," + K_NATIONALITY + " TEXT + 
+					+ K_DOB + " TEXT," + K_EMAIL + " TEXT "
+					+ K_FBLINK + " TEXT," + K_NATIONALITY + " TEXT"
 					+ K_WORKSTAT + " TEXT," + ")";
 			db.execSQL(create_main_table); 	// Execute SQL command
 			
