@@ -25,7 +25,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
 	// Database version
 	// Database Name and Paths
 	private static final String DB_NAME = "UQ9DB.db";
-	private static final String DB_PATH = "/data/data/com.example.transport/databases/";
+	private static final String DB_PATH = "/data/data/pt.projecttransporter/databases/";
 
 	// Contacts table name
 	private static final String TABLE_CONTACTS = "uq9db";
