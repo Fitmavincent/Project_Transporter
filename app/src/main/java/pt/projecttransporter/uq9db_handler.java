@@ -30,8 +30,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
 
 	// Contacts table name
 	private static final String TABLE_MAIN = "uq9db_main";
-    	private static final String TABLE_DRIVERS = "uq9db_drivers";
-    	private static final String TABLE_GOCARD = "uq9db_gocard";
+    	private static final String TABLE_VOLATILE = "uq9db_volatile";
 
 	// Contacts Table Columns names
 	private static final String K_ID = "id";
@@ -78,35 +77,27 @@ public class uq9db_handler extends SQLiteOpenHelper{
 					+ K_ID + " INTEGER PRIMARY KEY," + K_FIRSTNAME + " TEXT,"
 					+ K_LASTNAME + " TEXT," + K_GENDER + " TEXT," 
 					+ K_ADDR + " TEXT," + K_TEL  + " TEXT," 
-					+ K_DOB + " TEXT," + K_EMAIL + " TEXT "
-					+ K_FBLINK + " TEXT," + K_NATIONALITY + " TEXT"
+					+ K_DOB + " TEXT," + K_EMAIL + " TEXT,"
+					+ K_FBLINK + " TEXT," + K_NATIONALITY + " TEXT,"
 					+ K_WORKSTAT + " TEXT," + ")";
 			db.execSQL(create_main_table); 	// Execute SQL command
 			
-//			// Create table - Drivers
-//			String create_drivers_table = "CREATE TABLE " + TABLE_DRIVERS + "("
-//					+ K_ID + " INTEGER PRIMARY KEY," + K_DRIVE + " TEXT,"
-//					+ K_CARSPACE + " INT," + "FOREIGN KEY (" + K_ID + ") "
-//					+ "REFERENCES " + TABLE_MAIN + "(" + K_ID + ")" + ")";
-//			db.execSQL(create_drivers_table); // Execute SQL command
-//
-//			// Create table - GoCard
-//			String create_gocard_table = "CREATE TABLE " + TABLE_GOCARD + "("
-//					+ K_ID + " INTEGER PRIMARY KEY," + K_GOCARD + " TEXT,"
-//                    		+ "FOREIGN KEY (" + K_ID + ") " + "REFERENCES " + TABLE_MAIN
-//                    		+ "(" + K_ID + ")" + ")";
-//			db.execSQL(create_gocard_table); // Execute SQL command
+			// Create table - Volatile
+			String create_volatile_table = "CREATE TABLE " + TABLE_VOLATILE + "("
+					+ K_ID + " INTEGER PRIMARY KEY," + K_DRIVE + " TEXT,"
+					+ K_CARSPACE + " INT," + K_GOCARD + " TEXT,"
+					+ "FOREIGN KEY (" + K_ID + ") "
+					+ "REFERENCES " + TABLE_MAIN + "(" + K_ID + ")" + ")";
+			db.execSQL(create_drivers_table); // Execute SQL command
 		}
 	}
 
 	// Upgrading database
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// Drop older table if existed
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAIN);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DRIVERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GOCARD);
-
+	// Drop older table if existed
+	db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAIN);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_VOLATILE);
 
         // Create tables again
 		onCreate(db);
@@ -150,7 +141,7 @@ public class uq9db_handler extends SQLiteOpenHelper{
 		values.put(K_EMAIL, person.getEmail());
 		values.put(K_FBLINK, person.getFblink());
 		values.put(K_NATIONALITY, person.getNationality());
-        values.put(K_WORKSTAT, person.getWork_stat());
+        	values.put(K_WORKSTAT, person.getWork_stat());
 
 		// Inserting Row
 		db.insert(TABLE_MAIN, null, values);
