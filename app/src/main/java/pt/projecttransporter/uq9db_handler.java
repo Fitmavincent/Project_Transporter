@@ -72,30 +72,24 @@ public class uq9db_handler extends SQLiteOpenHelper{
 
 			// Create table - Main
 			String create_main_table = "CREATE TABLE " + TABLE_CONTACTS + "("
-					+ K_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-					+ KEY_GENDER + " TEXT," + KEY_DRIVER + " TEXT," + KEY_STUDENT  + " TEXT," 
-					+ KEY_CARCAP + " TEXT," + KEY_GOING + " TEXT " + ")";
-
-			// Execute SQL command
-			db.execSQL(create_main_table);
+					+ K_ID + " INTEGER PRIMARY KEY," + K_FIRSTNAME + " TEXT,"
+					+ K_LASTNAME + " TEXT," + K_GENDER + " TEXT," 
+					+ K_ADDR + " TEXT," + K_TEL  + " TEXT," 
+					+ K_DATE + " TEXT," + KEY_EMAIL + " TEXT " 
+					+ K_FBLINK + " TEXT," + K_NATIONALITY + " TEXT + 
+					+ K_WORKSTAT + " TEXT," + ")";
+			db.execSQL(create_main_table); 	// Execute SQL command
 			
 			// Create table - Drivers
 			String create_drivers_table = "CREATE TABLE " + TABLE_CONTACTS + "("
-					+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-					+ KEY_GENDER + " TEXT," + KEY_DRIVER + " TEXT," + KEY_STUDENT  + " TEXT," 
-					+ KEY_CARCAP + " TEXT," + KEY_GOING + " TEXT " + ")";
-
-			// Execute SQL command
-			db.execSQL(create_drivers_table);
+					+ K_ID + " INTEGER PRIMARY KEY," + K_DRIVE + " TEXT," 
+					+ K_CARSPACE + " INT," + ")";
+			db.execSQL(create_drivers_table); // Execute SQL command
 			
 			// Create table - GoCard
 			String create_gocard_table = "CREATE TABLE " + TABLE_CONTACTS + "("
-					+ KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-					+ KEY_GENDER + " TEXT," + KEY_DRIVER + " TEXT," + KEY_STUDENT  + " TEXT," 
-					+ KEY_CARCAP + " TEXT," + KEY_GOING + " TEXT " + ")";
-
-			// Execute SQL command
-			db.execSQL(create_gocard_table);
+					+ K_ID + " INTEGER PRIMARY KEY," + K_GOCARD + " TEXT," + ")";
+			db.execSQL(create_gocard_table); // Execute SQL command
 		}
 	}
 
